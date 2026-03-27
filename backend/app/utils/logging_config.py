@@ -1,5 +1,9 @@
 """
 Logging configuration
-- Logger format
-- Handlers
 """
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+)
