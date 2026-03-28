@@ -20,6 +20,7 @@ data/
 
 # IDE
 .idea/
+.iml
 *.iml
 *.ipr
 *.iws

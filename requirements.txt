@@ -6,3 +6,5 @@ pandas
 pydantic
 pydantic-settings
 pyarrow
+npm
+node
