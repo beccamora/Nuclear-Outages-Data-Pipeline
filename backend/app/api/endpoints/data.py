@@ -4,7 +4,7 @@ endpoint to retrieve data
 """
 import pandas as pd
 import logging
-from fastapi import APIRouter, Query, HTTPException, status
+from fastapi import APIRouter, Query, HTTPException
 from typing import Optional
 from backend.services.storage import load_data, load_yearly_data
 
@@ -24,7 +24,10 @@ def get_data(
     df = load_data()
     if df.empty:
         # source missing
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        raise HTTPException(
+            status_code=503,
+            detail="No data available — run POST /refresh first"
+        )
 
     # if the date was provided, we filter rows
     if date_from:
@@ -55,6 +58,9 @@ def get_stats():
     df = load_yearly_data()
 
     if df.empty:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        raise HTTPException(
+            status_code=503,
+            detail="No data available — run POST /refresh first"
+        )
 
     return {"data": df.to_dict(orient="records")}
