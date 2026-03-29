@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: 'https://nuclear-outages-data-pipeline.onrender.com'
+     baseURL: import.meta.env.VITE_API_URL
 })
 
 // fetch outage records with optional sorting and pagination
