@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: 'http://localhost:8000'
+    baseURL: 'https://nuclear-outages-data-pipeline.onrender.com'
 })
 
 // fetch outage records with optional sorting and pagination
