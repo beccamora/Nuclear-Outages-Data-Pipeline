@@ -1,4 +1,6 @@
 import { useEffect, useRef } from 'react'
+import { Quantum } from 'ldrs/react'
+import 'ldrs/react/Quantum.css'
 import {
     Chart,
     BarElement, BarController,
@@ -142,8 +144,12 @@ export default function YearlyChart({ stats, loading, error }) {
             )}
 
             {!loading && error && (
-                <div className="flex items-center justify-center flex-1 text-red-400 text-sm">
-                    Loading error
+                <div className="flex items-center justify-center my-auto">
+                    <Quantum
+                        size="55"
+                        speed="2"
+                        color="white"
+                    />
                 </div>
             )}
 

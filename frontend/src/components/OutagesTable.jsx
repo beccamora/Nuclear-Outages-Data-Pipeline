@@ -1,5 +1,7 @@
 // display filtered and paginated outage records with sorting option
 import { useState } from 'react'
+import { Quantum } from 'ldrs/react'
+import 'ldrs/react/Quantum.css'
 
 export default function OutagesTable({ data, loading, error, filters, setFilters, pagination, onPageChange }) {
 
@@ -102,11 +104,13 @@ export default function OutagesTable({ data, loading, error, filters, setFilters
 
                         {/* errors */}
                         {!loading && error && (
-                            <tr>
-                                <td colSpan={4} className="px-4 py-10 text-center text-red-400 text-sm">
-                                    Loading error
-                                </td>
-                            </tr>
+                            <div className="flex items-center mx-80 my-16">
+                                <Quantum
+                                  size="55"
+                                  speed="2"
+                                  color="white"
+                                />
+                            </div>
                         )}
 
                         {!loading && !error && sorted.length === 0 && (
