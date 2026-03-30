@@ -1,7 +1,8 @@
 """
-Validate data extracted from EIA API and structure into
-- Outages table
-- Yearly outages table (min, max and avg)
+Validate data extracted from EIA API and structure
+- Validate missing fields
+- Create DF for Outages table
+- Create DF for Yearly outages table (min, max and avg)
 """
 import pandas as pd
 import logging

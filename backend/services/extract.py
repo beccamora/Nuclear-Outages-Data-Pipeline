@@ -1,8 +1,8 @@
 """
-Full pipeline integration
-    - Call function to extract data from EIA API
-    - Validate and structure data
-    - Call function to save data as parquet
+Full pipeline integration for incremental data extraction
+    - Call function from connector.py to extract data from EIA API (API auth, pagination and error handling))
+    - Validate and structure data through process.py (check missing fields, DF for tables and charts)
+    - Call function to save data as parquet from storage.py (save parquet, load data and helper func for incremental extraction)
 """
 import logging
 from backend.services.connector import EIAConnector
@@ -25,7 +25,7 @@ def data_pipeline() -> dict:
         logging.warning("No outages records available after processing")
         return {"status": "empty", "saved": 0}
 
-    # filter records so we only add new ones
+    # filter records so we only add new ones (incremental extraction)
     last_period = get_last_period()
     if last_period:
         # filter df to keep dates after last period

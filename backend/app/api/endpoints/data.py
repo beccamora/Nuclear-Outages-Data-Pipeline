@@ -1,6 +1,6 @@
 """
 PART 3: Simple API
-endpoint to retrieve data
+endpoint to retrieve data from table and chart
 """
 import pandas as pd
 import logging

@@ -1,5 +1,7 @@
 """
-Store data as parquet files
+- Store table DF's as parquet files
+- Functions to load data tables
+- Function to get last period for incremental data extraction
 """
 import pandas as pd
 import logging
